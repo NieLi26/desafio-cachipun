@@ -20,8 +20,7 @@ if ( !confirmar ) {
     let cantidadPartidas;
     let resultados = {
         "humano": 0,
-        "maquina": 0,
-        "empates": 0
+        "maquina": 0
     };
 
     const condicionarCantidadValida = cantidadPartidas => {
@@ -60,7 +59,8 @@ if ( !confirmar ) {
                 ${"   "}* Tuya = ${opciones[eleccionAdaptada]}\n\n
                 ES UN EMPATE!!!
             `)
-            resultados.empates++
+            resultados.maquina++
+            resultados.humano++
             return;
         }
 
@@ -144,47 +144,32 @@ if ( !confirmar ) {
     }
 
 
-    if ( resultados.humano > resultados.maquina ) {
+    if ( resultados.humano === resultados.maquina ) {
+        alert(`####### Resultados del juego #####\n\n
+            * Humano = ${resultados.humano}\n
+            * Maquina = ${resultados.maquina}\n\n
+            
+            SE HA GENERADO UN EMPATE!!!
+            
+        `)
+    }
 
-        if ( resultados.humano > resultados.empates ) {
-            alert(`####### Resultados del juego #####\n\n
-                * Humano = ${resultados.humano}\n
-                * Maquina = ${resultados.maquina}\n
-                * Empates = ${resultados.empates}\n\n
-                
-                FELICIDADES HAS GANADO!!!
-                
-            `)
-        } else {
-            alert(`####### Resultados del juego #####\n\n
-                * Humano = ${resultados.humano}\n
-                * Maquina = ${resultados.maquina}\n
-                * Empates = ${resultados.empates}\n\n
-                
-                SE HA GENERADO UN EMPATE!!!
-                
-            `)
-        }
+    if ( resultados.humano > resultados.maquina ) {
+        alert(`####### Resultados del juego #####\n\n
+            * Humano = ${resultados.humano}\n
+            * Maquina = ${resultados.maquina}\n\n
+            
+            FELICIDADES HAS GANADO!!!
+            
+        `)
 
     } else {
-        if ( resultados.maquina > resultados.empates ) {
-            alert(`####### Resultados del juego #####\n\n
-                * Humano = ${resultados.humano}\n
-                * Maquina = ${resultados.maquina}\n
-                * Empates = ${resultados.empates}\n\n
-                
-                AH GANADO LA MAQUINA!!!
-                
-            `)
-        } else {
-            alert(`####### Resultados del juego #####\n\n
-                * Humano = ${resultados.humano}\n
-                * Maquina = ${resultados.maquina}\n
-                * Empates = ${resultados.empates}\n\n
-                
-                SE HA GENERADO UN EMPATE!!!
-                
-            `)
-        }
+        alert(`####### Resultados del juego #####\n\n
+            * Humano = ${resultados.humano}\n
+            * Maquina = ${resultados.maquina}\n\n
+        
+            LO LAMENTO, HA GANADO LA MAQUINA!!!
+            
+        `)
     }
 }
